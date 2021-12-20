@@ -1,0 +1,22 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(gradleApi())
+
+    testImplementation 'com.tngtech.archunit:archunit-junit5:0.22.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.8.2'
+}
+
+test {
+    useJUnitPlatform()
+    filter {
+        excludeTestsMatching "*IT"
+    }
+}
